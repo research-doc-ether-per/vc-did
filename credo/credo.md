@@ -30,10 +30,7 @@
 ### 通信プロトコル
 
 1. DIDComm
-   - https://github.com/openwallet-foundation/credo-ts/pull/1458
-   - https://github.com/openwallet-foundation/credo-ts/pull/1314
 2. DidExchange protocol
-   - https://github.com/openwallet-foundation/credo-ts/pull/615
 3. Connections Protocol
 
 ### 認証プロトコル
@@ -47,10 +44,18 @@
 1. OIDC4VCI (OpenID Connect for Verifiable Credential Issuance)
 2. OIDC4VP (OpenID Connect for Verifiable Presentations)
 3. Presentation Exchange
-   - https://github.com/openwallet-foundation/credo-ts/pull/1672
 4. DIF Presentation Exchange
 5. Issue credential protocol
 6. Present Proof Protocol
+
+### 参照コード
+
+- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/didcomm
+- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/connections
+- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/dif-presentation-exchange
+- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/proofs/protocol
+- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/credentials/protocol
+- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/vc/models/
 
 ## シーケンス図
 

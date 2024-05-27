@@ -30,32 +30,96 @@
 ### 通信プロトコル
 
 1. DIDComm
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1496
+     - https://github.com/openwallet-foundation/credo-ts/pull/1314
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/didcomm
+   - 使用場面
+     - エージェント間で DID を使用してメッセージやデータの交換を行うために使用されます。
 2. DidExchange protocol
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/615
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/connections
+   - 使用場面
+     - エージェント間の接続を確立する際に、DID 情報の交換と相互認証を行う時に使用されます。
 3. Connections Protocol
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1558
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/connections
+   - 使用場面
+     - エージェント間の接続を管理し、メッセージングとデータの交換を行うために使用されます。
 
 ### 認証プロトコル
 
 1. OAuth 2.0
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1197
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/openid4vc/src
+   - 使用場面
+     - VC 発行に使用されます。発行する前にユーザーの同意と認可を確保します。
 2. OIDC (OpenID Connect)
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1197
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/openid4vc/src
+   - 使用場面
+     - VC 発行・検証時の身元確認に使用されます。
 3. SIOPv2 (Self-Issued OpenID Provider v2)
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1197
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/openid4vc/src
+   - 使用場面
+     - VC 検証に使用されます。ユーザーが自己発行した証明書を検証者に提示し、検証者は SIOPv2 標準を通じて VC を検証します。
 
 ### クレデンシャル交換プロトコル
 
 1. OIDC4VCI (OpenID Connect for Verifiable Credential Issuance)
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1197
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/openid4vc/src
+   - 使用場面
+     - VC を発行するために使用されます。発行者はユーザーに証明書を発行し、ユーザーはそれをウォレットに保存します。
 2. OIDC4VP (OpenID Connect for Verifiable Presentations)
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1197
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/openid4vc/src
+   - 使用場面
+     - ユーザーが VC を提示し、検証者がその情報を検証する時に使用されます。ユーザーは証明書を検証者に提示し、検証者は OIDC4VP を通じて証明書を検証します。
 3. Presentation Exchange
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1676
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/dif-presentation-exchange
+   - 使用場面
+     - ユーザーは検証者の要求に従って必要な証明書を提出し、検証者はこれらの証明書を検証します。
 4. DIF Presentation Exchange
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1676
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/dif-presentation-exchange
+   - 使用場面
+     - ユーザーは検証者の要求に基づいて関連する証明書を提示し、検証者はこの規格を通じてこれらの証明書を検証します。
 5. Issue credential protocol
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1113
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/credentials/protocol
+   - 使用場面
+     - 発行者はこのプロトコルを通じてユーザーに証明書を発行し、ユーザーはそれをウォレットに保存します。
 6. Present Proof Protocol
-
-### 参照コード
-
-- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/didcomm
-- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/connections
-- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/dif-presentation-exchange
-- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/proofs/protocol
-- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/credentials/protocol
-- https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/vc/models/
+   - エビデンス
+     - https://github.com/openwallet-foundation/credo-ts/pull/1113
+   - モジュール
+     - https://github.com/openwallet-foundation/credo-ts/tree/main/packages/core/src/modules/proofs/protocol
+   - 使用場面
+     - ユーザーは検証者に必要な証明書を提示し、検証者はこのプロトコルを使用して証明書を検証します。
 
 ## シーケンス図
 
@@ -115,7 +179,6 @@ sequenceDiagram
    Holder->>Storage: Select Credential Information
    Holder->>Verifier: Present Selected Credential Information using the selected format
    Verifier->>DIDRegistry: Verify Credential via DID Resolution
-   Note right of Verifier: Communication via HTTPS/OAuth 2.0 & DIDComm
 ```
 
 ### VC 発行、VC／VP 検証に関しての大まかな流れ

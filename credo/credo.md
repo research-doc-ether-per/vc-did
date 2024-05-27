@@ -18,18 +18,22 @@
 
 ## サポートされているクレデンシャル形式
 
-1. Anoncreds V1
-2. AnonCreds V2
-3. JWT
-4. SD-JWT (Selective Disclosure JWT)
-5. LDP (Linked Data Proofs)
+1. [Anoncreds](https://github.com/openwallet-foundation/credo-ts/blob/main/demo/src/BaseAgent.ts#L7)
+2. [W3C VC](https://github.com/openwallet-foundation/credo-ts/blob/main/packages/openid4vc/src/shared/models/OpenId4VciCredentialFormatProfile.ts)
+   1. JWT
+   2. SD-JWT (Selective Disclosure JWT)
+   3. LDP (Linked Data Proofs)
+   4. JSON-LD (JSON for Linking Data)
 
 ## サポートされている通信・認証プロトコル
 
 ### 通信プロトコル
 
 1. DIDComm
+   - https://github.com/openwallet-foundation/credo-ts/pull/1458
+   - https://github.com/openwallet-foundation/credo-ts/pull/1314
 2. DidExchange protocol
+   - https://github.com/openwallet-foundation/credo-ts/pull/615
 3. Connections Protocol
 
 ### 認証プロトコル
@@ -43,6 +47,7 @@
 1. OIDC4VCI (OpenID Connect for Verifiable Credential Issuance)
 2. OIDC4VP (OpenID Connect for Verifiable Presentations)
 3. Presentation Exchange
+   - https://github.com/openwallet-foundation/credo-ts/pull/1672
 4. DIF Presentation Exchange
 5. Issue credential protocol
 6. Present Proof Protocol

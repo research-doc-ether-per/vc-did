@@ -35,7 +35,7 @@
 
 ## eIDAS ARF(Architecture and Reference Framework) フレームワーク
 
-1. エコシステム
+1. [エコシステム](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/arf.md#3-ecosystem)
    <br>
    <img src="./assets/ecosystem.png" width="50%">
    <br>
@@ -56,12 +56,47 @@
    - 信頼リスト提供者
      - すべての参加者とサービスが検証され信頼できることを保証する信頼リストを維持します。
 2. 流れ
-   <br>
-   <img src="./assets/architecture.png" width="50%">
-   <br>
-   - ユーザーは、自身のデバイス上の EUDI ウォレットインスタンスを通じてウォレット機能を制御および活性化します。
-   - ウォレットは、複数の提供者との相互作用を通じて PID および各種証明を取得し検証します。
-   - ユーザーは、これらの情報を依存者に提示してサービスを受けるか取引を行います。
+   1. [シーケンス図](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/arf.md#42-reference-architecture)
+      <br>
+      <img src="./assets/architecture.png" width="50%">
+      <br>
+   2. 大まかな流れ
+      - ユーザーは、自身のデバイス上の EUDI ウォレットインスタンスを通じてウォレット機能を制御および活性化します。
+      - ウォレットは、複数の提供者との相互作用を通じて PID および各種証明を取得し検証します。
+      - ユーザーは、これらの情報を依存者に提示してサービスを受けるか取引を行います。
+
+## シーケンス図
+
+```mermaid
+sequenceDiagram
+    participant User as User
+    participant WalletApp as EUDI Wallet
+    participant CredentialProvider as Issuer (PID/Attestation Provider)
+    participant RelyingParty as Verifier
+
+    User->>+WalletApp: インストール＆登録
+
+    Note over WalletApp,CredentialProvider: OID4VCI
+    Note over WalletApp,CredentialProvider: SD-JWT、ISO mDOC mDOC、JSON-LD + LD-Proofs
+    WalletApp->>+CredentialProvider: 証明書をリクエスト
+    CredentialProvider-->>-WalletApp: 証明書を発行
+
+    Note over WalletApp,RelyingParty: OID4VP & SIOPv2、ISO/IEC 18013-5(Proximity)
+
+    User->>+WalletApp: 証明書を選択
+    WalletApp->>+RelyingParty: 証明書を提供
+    RelyingParty-->>-WalletApp: 証明書を検証
+    WalletApp-->>User: 検証結果を表示
+
+    Note over WalletApp,CredentialProvider: 証明書の更新・削除
+    User->>+WalletApp: 証明書の更新・削除をリクエスト
+    WalletApp->>+CredentialProvider: 証明書の更新・削除のリクエストを提出
+    CredentialProvider-->>-WalletApp: 証明書の更新・削除を実行
+
+    Note over User,User: EUDIウォレットのアンインストール
+    User->>+WalletApp: EUDIウォレットをアンインストール
+    WalletApp-->>-User: アンインストールの確認
+```
 
 ## 自作ウォレットのサポート
 
@@ -84,7 +119,9 @@
 
 <br>
 <img src="./assets/vc_format.png" width="50%">
-<br>
+
+- [参照リンク](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/v1.3.0/docs/media/image7.png)
+  <br>
 
 ## サポートされている通信・認証プロトコル規格
 
@@ -141,39 +178,6 @@
 ## コミュニティの活動状況
 
 - EUDI Wallet は、European Digital Identity プロジェクトの一部として、欧州連合（EU）のデジタル戦略の推進に貢献するオープンソースプロジェクトです。GitHub での活動を見ると、EUDI Wallet のリポジトリは 331 のスターと 42 のフォークが寄せられ、プロジェクトへの広範な関心と活発な参加が示されています。また、46 件のオープンイシューと 7 件のプルリクエストが進行中であり、これらの数字から EUDI Wallet コミュニティの活動が非常に活発であることが示されています。
-
-## シーケンス図
-
-```mermaid
-sequenceDiagram
-    participant User as User
-    participant WalletApp as EUDI Wallet
-    participant CredentialProvider as Issuer (PID/Attestation Provider)
-    participant RelyingParty as Verifier
-
-    User->>+WalletApp: インストール＆登録
-
-    Note over WalletApp,CredentialProvider: OID4VCI
-    Note over WalletApp,CredentialProvider: SD-JWT、ISO mDOC mDOC、JSON-LD + LD-Proofs
-    WalletApp->>+CredentialProvider: 証明書をリクエスト
-    CredentialProvider-->>-WalletApp: 証明書を発行
-
-    Note over WalletApp,RelyingParty: OID4VP & SIOPv2、ISO/IEC 18013-5(Proximity)
-
-    User->>+WalletApp: 証明書を選択
-    WalletApp->>+RelyingParty: 証明書を提供
-    RelyingParty-->>-WalletApp: 証明書を検証
-    WalletApp-->>User: 検証結果を表示
-
-    Note over WalletApp,CredentialProvider: 証明書の更新・削除
-    User->>+WalletApp: 証明書の更新・削除をリクエスト
-    WalletApp->>+CredentialProvider: 証明書の更新・削除のリクエストを提出
-    CredentialProvider-->>-WalletApp: 証明書の更新・削除を実行
-
-    Note over User,User: EUDIウォレットのアンインストール
-    User->>+WalletApp: EUDIウォレットをアンインストール
-    WalletApp-->>-User: アンインストールの確認
-```
 
 ## サンプル
 

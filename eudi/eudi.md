@@ -129,51 +129,92 @@ sequenceDiagram
 
 1. ISO/IEC 18013-5(Proximity)
    - 近接通信に使用されます。例えば、ユーザーが警察官に運転免許証を示す必要がある場合、EUDI Wallet を使用してデジタル運転免許証を提供できます。ユーザーと警察官のデバイスが近接している状況で、必要なデータが安全に転送されます。
+   - ライブラリ
+     - [Android ISO 18013-5 Wallet Transfer library](https://github.com/eu-digital-identity-wallet/eudi-lib-android-iso18013-data-transfer)
+     - [iOS ISO/IEC 18013-5 Wallet Data Transfer library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-transfer)
 
 ### 認証プロトコル
 
 1. OAuth 2.0
    - VC 発行に使用されます。発行する前にユーザーの同意と認可を確保します。
+   - ライブラリ
+     - [Android SIOPv2 and OpenID4VP library](https://github.com/eu-digital-identity-wallet/eudi-lib-jvm-siop-openid4vp-kt)
+     - [iOS SIOPv2 and OpenID4VP library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift)
 2. OIDC (OpenID Connect)
    - VC 発行・検証時の身元確認に使用されます。
+   - ライブラリ
+     - OAuth 2.0 と同じ
 3. SIOPv2(Self-Issued OpenID Provider v2)
    - VC 検証に使用されます。ユーザーが自己発行した証明書を検証者に提示し、検証者は SIOPv2 標準を通じて VC を検証します。
+   - ライブラリ
+     - OAuth 2.0 と同じ
 
 ### クレデンシャル交換プロトコル
 
 1. OID4VCI (OpenID for Verifiable Credential Issuance)
    - VC を発行するために使用されます。発行者はユーザーに証明書を発行し、ユーザーはそれをウォレットに保存します。
+   - ライブラリ
+     - [Android OpenId4VCI library](https://github.com/eu-digital-identity-wallet/eudi-lib-jvm-openid4vci-kt)
+     - [iOS OpenId4VCI library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift)
 2. OID4VP (OpenID for Verifiable Presentations)
    - ユーザーが VC を提示し、検証者がその情報を検証する時に使用されます。ユーザーは証明書を検証者に提示し、検証者は OIDC4VP を通じて証明書を検証します。
+   - ライブラリ
+     - [Android SIOPv2 and OpenID4VP library](https://github.com/eu-digital-identity-wallet/eudi-lib-jvm-siop-openid4vp-kt)
+     - [iOS SIOPv2 and OpenID4VP library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift)
 3. DIF Presentation Exchange Protocol
    - ユーザーは検証者の要求に基づいて関連する証明書を提示し、検証者はこの規格を通じてこれらの証明書を検証します。
+   - ライブラリ
+     - [Android Presentation Exchange library](https://github.com/eu-digital-identity-wallet/eudi-lib-jvm-presentation-exchange-kt)
+     - [iOS Presentation Exchange library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-presentation-exchange-swift)
 4. Presentation Exchange Protocol
    - ユーザーは検証者の要求に従って必要な証明書を提出し、検証者はこれらの証明書を検証します。
+   - ライブラリ
+     - DIF Presentation Exchange Protocol と同じ
 5. Issue Credential Protocol
    - 発行者はこのプロトコルを通じてユーザーに証明書を発行し、ユーザーはそれをウォレットに保存します。
+   - ライブラリ
+     - OID4VCI と同じ
 6. Present Proof Protocol
    - ユーザーは検証者に必要な証明書を提示し、検証者はこのプロトコルを使用して証明書を検証します。
+   - ライブラリ
+     - OID4VP、 DIF Presentation Exchange Protocol と同じ
 
 ## ライブラリ
 
 1. Android
    - [Wallet Core library](https://github.com/eu-digital-identity-wallet/eudi-lib-android-wallet-core)
+     - 基本的なウォレット機能とセキュリティ機能を提供します。例：クレデンシャル管理、認証
    - [ISO 18013-5 Wallet Transfer library](https://github.com/eu-digital-identity-wallet/eudi-lib-android-iso18013-data-transfer)
+     - モバイル運転免許証のデータ転送をサポートします。例：運転免許証データの安全な転送
    - [Presentation Exchange library](https://github.com/eu-digital-identity-wallet/eudi-lib-jvm-presentation-exchange-kt)
+     - 複数のプラットフォーム間での証明書交換を可能にします。例：デジタル身分証明書の共有
    - [SIOPv2 and OpenID4VP library](https://github.com/eu-digital-identity-wallet/eudi-lib-jvm-siop-openid4vp-kt)
+     - OpenID Connect を用いた認証と検証プロセスを提供します。例：ユーザー認証とアイデンティティ検証
    - [SD-JWT library](https://github.com/eu-digital-identity-wallet/eudi-lib-jvm-sdjwt-kt)
+     - 選択的開示を可能にする JWT をサポートします。
    - [OpenId4VCI library](https://github.com/eu-digital-identity-wallet/eudi-lib-jvm-openid4vci-kt)
+     - 証明書発行のための OpenID Connect プロトコルを実装します。例：デジタル証明書の発行
    - [Wallet Documents Manager library](https://github.com/eu-digital-identity-wallet/eudi-lib-android-wallet-document-manager)
+     - 文書管理と整理機能を提供します。例：デジタル文書の整理とアクセス
 2. iOS
    - [Wallet Kit library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit)
+     - 基本的なウォレット機能とセキュリティ機能を提供します。
    - [ISO/IEC 18013-5 Security library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-security)
+     - モバイル運転免許証のセキュリティ機能を強化するためのライブラリです。例：データ保護と暗号化
    - [ISO/IEC 18013-5 Wallet Data Transfer library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-transfer)
+     - モバイルデバイス間で安全にデータを転送する機能をサポートします。例：データ交換
    - [ISO/IEC 18013-5 Wallet Data Model library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-model)
+     - モバイル運転免許証のデータモデリングをサポートします。例：デジタル運転免許証のデータ構造定義
    - [Presentation Exchange library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-presentation-exchange-swift)
+     - 複数のプラットフォーム間での証明書交換を可能にします。
    - [SIOPv2 and OpenID4VP library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift)
+     - OpenID Connect を用いた認証と検証プロセスを提供します。例：オンライン認証
    - [SD-JWT library](https://github.com/eu-digital-identity-wallet/eudi-lib-sdjwt-swift)
+     - 選択的開示を可能にする JWT をサポートします。
    - [OpenId4VCI library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift)
+     - 証明書発行のための OpenID Connect プロトコルを実装します。
    - [Wallet Storage library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-storage)
+     - データ管理とアクセス制御機能を提供します。例：データの保管
 
 ## コミュニティの活動状況
 

@@ -121,7 +121,8 @@ sequenceDiagram
 <img src="./assets/vc_format.png" width="50%">
 
 - [参照リンク](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/v1.3.0/docs/media/image7.png)
-  <br>
+
+<br>
 
 ## サポートされている通信・認証プロトコル規格
 
@@ -216,9 +217,25 @@ sequenceDiagram
    - [Wallet Storage library](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-storage)
      - データ管理とアクセス制御機能を提供します。例：データの保管
 
+## [パイロットプロジェクト](https://ec.europa.eu/digital-building-blocks/sites/display/EUDIGITALIDENTITYWALLET/What+are+the+Large+Scale+Pilot+Projects)
+
+1. [Potential (Pilots for European Digital Identity Wallet)](https://www.digital-identity-wallet.eu/)
+   - 公共サービスのデジタル化とセクター間協力を推進。
+2. [EWC (EU Digital Wallet Consortium)](https://eudiwalletconsortium.org/)
+   - デジタル旅行証明の使用事例に注力。
+3. [DC4EU (Digital Credentials for Europe)](https://www.dc4eu.eu/)
+   - 教育と社会保障のデジタルサービスを支援。
+     <br>
+     <img src="./assets/dc4eu-education.jpg" width="50%">
+     <br>
+     <img src="./assets/dc4eu-social-security.jpg" width="50%">
+     <br>
+4. [NOBID Consortium](https://www.nobidconsortium.com/)
+   - 北欧およびバルト諸国での製品やサービスの支払い承認を試験。
+
 ## コミュニティの活動状況
 
-- EUDI Wallet は、European Digital Identity プロジェクトの一部として、欧州連合（EU）のデジタル戦略の推進に貢献するオープンソースプロジェクトです。GitHub での活動を見ると、EUDI Wallet のリポジトリは 331 のスターと 42 のフォークが寄せられ、プロジェクトへの広範な関心と活発な参加が示されています。また、46 件のオープンイシューと 7 件のプルリクエストが進行中であり、これらの数字から EUDI Wallet コミュニティの活動が非常に活発であることが示されています。
+- EUDI Wallet は、European Digital Identity プロジェクトの一部として、欧州連合（EU）のデジタル戦略の推進に貢献するオープンソースプロジェクトです。このプロジェクトには 360 の民間企業や公共機関が参加しており、EU 全域でデジタルアイデンティティウォレットの展開と統合を支援しています。また、GitHub での活動を見ると、EUDI Wallet のリポジトリは 331 のスターと 42 のフォークが寄せられ、プロジェクトへの広範な関心と活発な参加が示されています。また、46 件のオープンイシューと 7 件のプルリクエストが進行中であり、これらの数字から EUDI Wallet コミュニティの活動が非常に活発であることが示されています。
 
 ## サンプル
 
@@ -297,3 +314,4 @@ sequenceDiagram
 
 - [reference-implementation](https://github.com/eu-digital-identity-wallet/.github/blob/main/profile/reference-implementation.md)
 - [ARF(Architecture and Reference Framework)](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/arf.md)
+- [EUDI HOME](https://ec.europa.eu/digital-building-blocks/sites/display/EUDIGITALIDENTITYWALLET/EU+Digital+Identity+Wallet+Home)
